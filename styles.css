@@ -1,4 +1,11 @@
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
 .dashboard {
     font-family: 'Helvetica', monospace;
     width: 800px;
@@ -6,10 +13,11 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1rem;
-    grid-template-areas: "h h h h"
-                         "s m m m"
-                         "a b c d";
-
+    grid-template-areas: 
+        "h h h h"
+        "h h h h"
+        "s m m m"
+        "a b c d";
 }
 
 h1 {
@@ -19,6 +27,16 @@ h1 {
     align-items: center;
     justify-content: center;
     font-style: bold;
+}
+
+
+.subtitle {
+    grid-area: h;
+    text-align: center; 
+    margin-top: 6.5rem; 
+    font-size: 1rem; 
+    font-weight: normal; 
+
 }
 
 h2 {
@@ -103,4 +121,56 @@ button {
     align-self: flex-end;
     border-radius: 5px;
     border: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .dashboard {
+        grid-template-areas:
+            "h h h"
+            "h h h"
+            "z z z"
+            "s s b"
+            "a a a"
+            "m c c"
+            "d d d";
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .subtitle {
+        margin-top: 3rem; 
+    }
+    .grid-cell {
+        padding: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .dashboard {
+        grid-template-areas:
+            "h h"
+            "h h"
+            "z z"
+            "s b"
+            "m c"
+            "a a"
+            "d d";
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .subtitle {
+        margin-top: 3rem; 
+    }
+    .grid-cell {
+        padding: 0.5rem;
+    }
+    .population, .welcome, .gdp, .code, .govt, .news {
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 }
